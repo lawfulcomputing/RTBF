@@ -82,9 +82,10 @@ def bulk_delete(es, index_name, mu, start_date):
         print("\nnew start_date: ", start_date)
 
 if __name__ == "__main__":
-    es = Elasticsearch(['129.114.109.87:9200'], timeout=7200)  # delete-search
+
+    # perform streaming delete based on wildcard query
+    es = Elasticsearch(['<your elasticsearch instance IP>'], timeout=7200)  # delete-search
     index_name = "so"
     mu = 30
-    start_date = datetime(2013, 4, 21)
-    duration_time = 2400   # seconds
+    start_date = datetime(2009, 1, 1)
     bulk_delete(es, index_name, mu, start_date)
